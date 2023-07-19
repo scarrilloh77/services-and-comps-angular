@@ -1,1 +1,5 @@
 <p>img works!</p>
+<img [src]="img" alt="image" width="200" *ngIf="img; else elseImg" />
+<ng-template #elseImg>
+  <img src="https://www.w3schools.com/howto/img_mountains.jpg" alt="default" />
+</ng-template>
