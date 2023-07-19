@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  imgParent = 'https://www.w3schools.com/w3css/img_avatar3.png';
+  imgParent = '';
+  onLoaded(img: string) {
+    console.log('log padre!', img);
+  }
 }
+
+//https://www.w3schools.com/w3css/img_avatar3.png
