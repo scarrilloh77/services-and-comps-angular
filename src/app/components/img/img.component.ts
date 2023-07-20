@@ -18,9 +18,20 @@ import {
 export class ImgComponent
   implements OnInit, OnChanges, AfterViewInit, OnDestroy
 {
-  @Input() img: string = '';
+  img: string = '';
+
+  @Input('img')
+  set changeImg(newImg: string) {
+    this.img = newImg;
+    console.log('change just img', this.img);
+    // code
+  }
+
+  @Input() alt: string = '';
   @Output() loaded = new EventEmitter<string>();
   imageDefault = 'https://www.w3schools.com/howto/img_mountains.jpg';
+  counter = 0;
+  counterFn: number | undefined;
 
   constructor() {
     // before render
@@ -34,12 +45,17 @@ export class ImgComponent
     // run asyncs process, fetch APIs, etc..
     // run once time
     console.log('ngOnInit', 'imgValue =>', this.img);
+    this.counterFn = window.setInterval(() => {
+      this.counter += 1;
+      console.log('run counter');
+    }, 1000);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     // before -- during render
-    // changes inputs -- many times like be required
+    // run when changes any input -- many times like be required
     console.log('ngOnChanges', 'imgValue =>', this.img);
+    console.log('changes', changes);
   }
 
   ngAfterViewInit(): void {
@@ -51,6 +67,7 @@ export class ImgComponent
   ngOnDestroy(): void {
     // delete component
     console.log('ngOnDestroy');
+    window.clearInterval(this.counterFn);
   }
 
   imgError() {
