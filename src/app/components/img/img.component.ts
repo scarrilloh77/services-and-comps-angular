@@ -30,8 +30,8 @@ export class ImgComponent
   @Input() alt: string = '';
   @Output() loaded = new EventEmitter<string>();
   imageDefault = 'https://www.w3schools.com/howto/img_mountains.jpg';
-  counter = 0;
-  counterFn: number | undefined;
+  // counter = 0;
+  // counterFn: number | undefined;
 
   constructor() {
     // before render
@@ -45,10 +45,10 @@ export class ImgComponent
     // run asyncs process, fetch APIs, etc..
     // run once time
     console.log('ngOnInit', 'imgValue =>', this.img);
-    this.counterFn = window.setInterval(() => {
-      this.counter += 1;
-      console.log('run counter');
-    }, 1000);
+    // this.counterFn = window.setInterval(() => {
+    //   this.counter += 1;
+    //   console.log('run counter');
+    // }, 1000);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -67,7 +67,7 @@ export class ImgComponent
   ngOnDestroy(): void {
     // delete component
     console.log('ngOnDestroy');
-    window.clearInterval(this.counterFn);
+    // window.clearInterval(this.counterFn);
   }
 
   imgError() {
