@@ -1,5 +1,8 @@
 <p>La cantidad {{ myShoppingCart.length }}</p>
 <p>Total: ${{ total }}</p>
+<p>Today: {{ today | date : "short" }}</p>
+<p>Otra fecha: {{ date | date : "yyyy....dd....MM" }}</p>
+<p>{{ "Hola Mundo" | uppercase }}</p>
 <div class="products--grid">
   <app-product
     [myProduct]="product"
@@ -7,3 +10,5 @@
     (addedProduct)="onAddToShoppingCart($event)"
   ></app-product>
 </div>
+
+<!-- pipes are used only on template (HTML) -->
