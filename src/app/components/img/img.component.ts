@@ -18,8 +18,9 @@ import {
 export class ImgComponent
   implements OnInit, OnChanges, AfterViewInit, OnDestroy
 {
-  img: string = '';
+  img = '';
 
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('img')
   set changeImg(newImg: string) {
     this.img = newImg;
@@ -27,7 +28,7 @@ export class ImgComponent
     // code
   }
 
-  @Input() alt: string = '';
+  @Input() alt = '';
   @Output() loaded = new EventEmitter<string>();
   imageDefault = 'https://www.w3schools.com/howto/img_mountains.jpg';
   // counter = 0;
